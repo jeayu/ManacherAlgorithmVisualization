@@ -174,6 +174,7 @@ function expandAnimation(minRadiusArrayLen = 0) {
         right++;
         selectLeftRight(left, right);
     }
+    removeSelectLeftRight(left, right);
     return (right - left - 2) / 2;
 }
 
@@ -317,6 +318,11 @@ function removeAllSelect() {
 function selectLeftRight(left, right) {
     checkIndex(left) && addClass(TBODY.rows[1].cells[left], 'select-char');
     checkIndex(right)  && addClass(TBODY.rows[1].cells[right], 'select-char');
+}
+
+function removeSelectLeftRight(left, right) {
+    checkIndex(left) && removeClass(TBODY.rows[1].cells[left], 'select-char');
+    checkIndex(right)  && removeClass(TBODY.rows[1].cells[right], 'select-char');
 }
 
 function drawRadius(radius) {
